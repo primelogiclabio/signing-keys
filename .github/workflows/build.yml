@@ -3,10 +3,30 @@ name: Build
 # Builds and tests signing-keys on Windows and Linux. The jar and the launchers
 # (signing-keys.cmd and signing-keys.sh) are kept as a download on the run,
 # so the tool can be tried without building it.
+#
+# It runs only when something that goes into the build changes: the source, the
+# pom, the launchers, .gitattributes (it sets the launchers' line endings) or this
+# workflow. Changes to the docs, README or LICENSE alone do not start a run. Start
+# one by hand from the Actions tab (workflow_dispatch) when you need it. Keep the
+# two path lists the same.
 on:
   push:
     branches: [main]
+    paths:
+      - 'src/**'
+      - 'pom.xml'
+      - 'signing-keys.cmd'
+      - 'signing-keys.sh'
+      - '.gitattributes'
+      - '.github/workflows/build.yml'
   pull_request:
+    paths:
+      - 'src/**'
+      - 'pom.xml'
+      - 'signing-keys.cmd'
+      - 'signing-keys.sh'
+      - '.gitattributes'
+      - '.github/workflows/build.yml'
   workflow_dispatch:
 
 jobs:
