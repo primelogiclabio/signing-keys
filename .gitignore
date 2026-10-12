@@ -1,0 +1,15 @@
+# Generated keys. A private key must never be committed.
+keys/
+*.pem
+
+# Build output
+target/
+signing-keys.jar
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath

@@ -1,0 +1,4 @@
+# Line endings stay right on every checkout. A .sh file with CRLF line endings fails on Linux.
+* text=auto
+*.sh text eol=lf
+*.cmd text eol=crlf
